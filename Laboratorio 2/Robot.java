@@ -8,7 +8,6 @@ public class Robot{
     private String nombre;
     private int puntosVida;
     private int ataque;
-    private String meganombre;
     
     private int defensa;
     
