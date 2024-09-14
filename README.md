@@ -1,3 +1,5 @@
-Curso Cl-0112
-: Es para el uso del curso Cl-0112...
-Yo me llamo Gabriel
+* CURSO CI-0112
+* Es para el uso del curso CI-0112
+* Estudiante: Gabriel Jiménez Morales
+* Carné: C34037
+
