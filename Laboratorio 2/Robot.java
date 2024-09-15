@@ -6,11 +6,12 @@ public class Robot {
     private int ataque;
     private int defensa;
 
-    public Robot(String nombre, int puntosVida, int ataqueMax, int ataque) {
+    public Robot(String nombre, int puntosVida, int ataqueMax, int ataque, int defensa) {
         this.nombre = nombre;
         this.puntosVida = puntosVida;
         this.ataqueMax = ataqueMax;
         this.ataque = ataque;
+        this.defensa = defensa;
     }
     
     public void setNombre(String nombre) {
@@ -49,6 +50,10 @@ public class Robot {
         return ataque;
     }
     
+    public int getDefensa() {
+        return defensa;
+    }
+    
     public void atacar(Robot otroRobot) {
         if (otroRobot != null && otroRobot.estaVivo()) {
             int daño = this.ataque - otroRobot.defensa;
@@ -60,6 +65,12 @@ public class Robot {
     }
     
     public boolean estaVivo() {
-        return puntosVida > 0;
+        if (puntosVida > 0){
+            return true;
+        }
+        else{
+        return false;
+        }
     }
+    
 }

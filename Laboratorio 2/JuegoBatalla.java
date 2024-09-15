@@ -34,12 +34,16 @@ public class JuegoBatalla {
     
     private static void iniciarBatalla() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese la cantidad de robots: ");
+        System.out.print("Ingrese la cantidad de robots (Máximo 10): ");
         int cantidadRobot = scanner.nextInt();
+        while (cantidadRobot > 10) {
+                System.out.print("VALOR INCORRECTO: Ingrese nuevamente la cantidad de robots (Máximo 10): ");
+                cantidadRobot = scanner.nextInt();
+            }
         scanner.nextLine();
-        
+    
         robotArray = new Robot[cantidadRobot];
-        
+
         for (int i = 0; i < cantidadRobot; i++) {
             System.out.print("Ingrese el nombre del robot: ");
             String nombreRobot = scanner.nextLine();
@@ -51,20 +55,28 @@ public class JuegoBatalla {
                 System.out.print("VALOR INCORRECTO: Ingrese nuevamente el valor de ataque máximo (de 10 a 20): ");
                 ataqueMaxRobot = scanner.nextInt();
             }
+            System.out.print("Ingrese un valor de defensa máximo (de 1 a 10): ");
+            int defensaMaxRobot = scanner.nextInt();
+            while (defensaMaxRobot < 1 || defensaMaxRobot > 10) {
+                System.out.print("VALOR INCORRECTO: Ingrese nuevamente el valor de defensa máximo (de 1 a 10): ");
+                defensaMaxRobot = scanner.nextInt();
+            }
             scanner.nextLine();
-            
-            int ataqueRobot = (int)(Math.random() * (ataqueMaxRobot - 10 + 1)) + 10;
+
+            int ataqueRobot = (int) (Math.random() * (ataqueMaxRobot - 10 + 1)) + 10;
             System.out.println("El ataque del robot " + nombreRobot + " es: " + ataqueRobot);
-            
+            int defensaRobot = (int) (Math.random() * (defensaMaxRobot - 1 + 1)) + 1;
+            System.out.println("La defensa del robot " + nombreRobot + " es: " + defensaRobot);
+
             System.out.println("----------------------------------------------------------------------------");
+
             try {
-                robotArray[i] = new Robot(nombreRobot, puntosVidaRobot, ataqueMaxRobot, ataqueRobot);
+                robotArray[i] = new Robot(nombreRobot, puntosVidaRobot, ataqueMaxRobot, ataqueRobot, defensaRobot);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
-        
-        // Batalla
+
         while (cantidadRobotsVivos() > 1) {
             for (int j = 0; j < robotArray.length; j++) {
                 if (cantidadRobotsVivos() <= 1) {
@@ -73,26 +85,27 @@ public class JuegoBatalla {
                 if (robotArray[j] != null && robotArray[j].estaVivo()) {
                     Robot atacante = robotArray[j];
                     Robot victima = obtenerVictimaAleatoria(j);
-                    
+
                     if (victima != null) {
                         atacante.atacar(victima);
                         System.out.println("----------------------------------------------------------------------------");
                         System.out.println(atacante.getNombre() + " atacó a " + victima.getNombre());
                         System.out.println("----------------------------------------------------------------------------");
-            
+
                         if (!victima.estaVivo()) {
                             System.out.println("----------------------------------------------------------------------------");
                             System.out.println(victima.getNombre() + " ha sido eliminado.");
                             System.out.println("----------------------------------------------------------------------------");
-            
+
                         }
                     }
                 }
             }
         }
-        
+
         scanner.close();
     }
+
     
     private static Robot obtenerVictimaAleatoria(int atacante) {
         int victima;
@@ -133,4 +146,5 @@ public class JuegoBatalla {
             System.out.println("No hay ganador.");
         }
     }
+    
 }
