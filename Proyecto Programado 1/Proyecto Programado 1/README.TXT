@@ -1,12 +1,10 @@
 ------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all they need to know. The comments should usually include at least:
-------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+* Detalle: éste es una tarea programada en la cual consiste en la elaboración de un  juego en el cual posee dos modos de juego, uno Tic Tac Toe (Gato)
+* y otro modo llamado cuatro en línea.
+* Instrucciones para ejecutar:
+*
+*
+*
+*
+
