@@ -3,8 +3,6 @@ public class Vector{
     Random randomGenerador = new Random ();
     int [] vector;
     
-    int i;    
-    int j;
     
     public Vector(int [] vector){
         this.vector = vector;
@@ -16,24 +14,32 @@ public class Vector{
     
     public void imprimirVector (){
         System.out.print("Los valores del vector son: ");
-        for (i = 0; vector.length > i; i++){
+        for (int i = 0; vector.length > i; i++){
             System.out.print(" " + vector [i] + " ");
         }
         System.out.println ("");
     }
     
     public void cambiarVector (){
-        for (i = 0; vector.length > i; i++){
+        for (int i = 0; vector.length > i; i++){
             this.vector[i] = randomGenerador.nextInt(101);
         }
     }
     public void ordenarVector (){
-        int posicionMenor = 0;
-        int valorMenor = vector [posicionMenor];
-        
-        for (i = 0; vector.length > i; i++){
-            for (j = i; vector.length > j; j++){
-                
+        for (int i = 0; vector.length > i; i++){
+            int posicionMenor = i;
+            int valorMenor = vector [posicionMenor];
+            for (int j = i; vector.length > j; j++){
+                if ( valorMenor > vector[j]){
+                    posicionMenor = j;
+                    valorMenor = vector [j];
+                }
+            }
+            int auxVector = vector[posicionMenor];
+            if (posicionMenor != i){
+                vector[posicionMenor] = auxVector;
+                vector[posicionMenor] = vector [i];
+                vector [i] = auxVector;
             }
         }
     }

@@ -9,7 +9,11 @@ public class Main{
         Vector vector1 = new Vector (VectorArreglo);
         
         vector1.imprimirVector();
+        vector1.ordenarVector();
+        vector1.imprimirVector ();
         vector1.cambiarVector();
         vector1.imprimirVector();
+        vector1.ordenarVector();
+        vector1.imprimirVector ();
     }
 }
