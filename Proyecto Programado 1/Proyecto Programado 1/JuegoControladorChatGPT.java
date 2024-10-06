@@ -2,15 +2,15 @@
 
 import java.util.Scanner;
 
-public class JuegoControlador {
-    private TicTacToe ticTacToe;
-    private CuatroEnLinea cuatroEnLinea;
+public class JuegoControladorChatGPT {
+    //private TicTacToe ticTacToe;
+    private CuatroEnLineaChatGPT cuatroEnLineaChatGPT;
     private Object juegoActual;
     private Scanner scanner;
 
-    public JuegoControlador() {
-        ticTacToe = new TicTacToe();
-        cuatroEnLinea = new CuatroEnLinea();
+    public JuegoControladorChatGPT() {
+        //ticTacToe = new TicTacToe();
+        cuatroEnLineaChatGPT = new CuatroEnLineaChatGPT();
         scanner = new Scanner(System.in);
     }
 
@@ -24,17 +24,17 @@ public class JuegoControlador {
         mostrarMenu();
         int opcion = scanner.nextInt();
         if (opcion == 1) {
-            juegoActual = ticTacToe;
-            jugarTicTacToe();
+            //juegoActual = ticTacToe;
+            //jugarTicTacToe();
         } else if (opcion == 2) {
-            juegoActual = cuatroEnLinea;
+            juegoActual = cuatroEnLineaChatGPT;
             jugarCuatroEnLinea();
         } else {
             System.out.println("Opción no válida.");
         }
     }
 
-    public void jugarTicTacToe() {
+    /*public void jugarTicTacToe() {
         TicTacToe juego = (TicTacToe) juegoActual;
         while (!juego.esJuegoTerminado()) {
             juego.mostrarTablero();
@@ -54,9 +54,9 @@ public class JuegoControlador {
             System.out.println("¡Empate!");
         }
     }
-
+    */
     public void jugarCuatroEnLinea() {
-        CuatroEnLinea juego = (CuatroEnLinea) juegoActual;
+        CuatroEnLineaChatGPT juego = (CuatroEnLineaChatGPT) juegoActual;
         while (!juego.esJuegoTerminado()) {
             juego.mostrarTablero();
             System.out.println("Turno del jugador " + juego.getJugadorActual());
@@ -76,7 +76,7 @@ public class JuegoControlador {
     }
 
     public static void main(String[] args) {
-        JuegoControlador controlador = new JuegoControlador();
+        JuegoControladorChatGPT controlador = new JuegoControladorChatGPT();
         controlador.seleccionarJuego();
     }
 }

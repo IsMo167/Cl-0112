@@ -1,6 +1,8 @@
 
 
-public class TicTacToe {
+public class TicTacToeChatGPT {
+}
+    /*
     private char[][] tablero;
     private char jugadorActual;
 
@@ -67,4 +69,6 @@ public class TicTacToe {
     public char getJugadorActual() {
         return jugadorActual;
     }
+    
 }
+*/

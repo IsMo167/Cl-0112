@@ -1,10 +1,10 @@
 
 
-public class CuatroEnLinea {
+public class CuatroEnLineaChatGPT {
     private char[][] tablero;
     private int jugadorActual;
 
-    public CuatroEnLinea() {
+    public CuatroEnLineaChatGPT() {
         iniciarJuego();
     }
 
