@@ -39,9 +39,9 @@ public class JuegoControladorChatGPT {
         while (!juego.esJuegoTerminado()) {
             juego.mostrarTablero();
             System.out.println("Turno del jugador " + juego.getJugadorActual());
-            System.out.print("Ingrese fila y columna (0-2): ");
-            int fila = scanner.nextInt();
-            int columna = scanner.nextInt();
+            System.out.print("Ingrese fila y columna (1-3): ");
+            int fila = scanner.nextInt()-1;
+            int columna = scanner.nextInt()-1;
             juego.hacerMovimiento(fila, columna);
             if (!juego.esJuegoTerminado()) {
                 juego.cambiarJugador();
@@ -60,8 +60,8 @@ public class JuegoControladorChatGPT {
         while (!juego.esJuegoTerminado()) {
             juego.mostrarTablero();
             System.out.println("Turno del jugador " + juego.getJugadorActual());
-            System.out.print("Ingrese columna (0-6): ");
-            int columna = scanner.nextInt();
+            System.out.print("Ingrese columna (1-7): ");
+            int columna = scanner.nextInt()-1;
             juego.hacerMovimiento(columna);
             if (!juego.esJuegoTerminado()) {
                 juego.cambiarJugador();
@@ -75,9 +75,14 @@ public class JuegoControladorChatGPT {
         }
     }
 
+<<<<<<< HEAD:Proyecto Programado 1/Proyecto Programado 1/JuegoControladorChatGPT.java
     public static void main(String[] args) {
         JuegoControladorChatGPT controlador = new JuegoControladorChatGPT();
+=======
+    /*public static void main(String[] args) {
+        JuegoControlador controlador = new JuegoControlador();
+>>>>>>> 24e1329f51b638d29327a43ff321cec7f9676dc3:Proyecto Programado 1/Proyecto Programado 1/JuegoControlador.java
         controlador.seleccionarJuego();
-    }
+    }*/
 }
 
