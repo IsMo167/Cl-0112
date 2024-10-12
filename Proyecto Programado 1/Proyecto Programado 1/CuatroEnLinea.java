@@ -1,22 +1,44 @@
 
-
 public class CuatroEnLinea{
-    private int [][] tablero;
-    private int jugadorActual;
+    char [][] tablero;
+    int jugadorActual;
     
-    public void setTablero (int [][] tablero){
+    public CuatroEnLinea (char [][] tablero,int jugadorActual ){
+        this.tablero = tablero;
+        this.jugadorActual = jugadorActual;
+    }
+    public void setTablero (char [][] tablero){
         this.tablero = tablero;
     }
     public void setJugadorActual (int jugadorActual){
         this.jugadorActual = jugadorActual;
     }
-    
-    public int [][] getTablero(){
+    public char [][] getTablero (){
         return tablero;
     }
     public int getJugadorActual (){
         return jugadorActual;
     }
     
-    
+    public void iniciarJugador (){
+        
+    }
+    public void hacerMovimiento (int columna){
+        
+    }
+    public void mostrarTablero (){
+        
+    }
+    public void esJuegoTerminado (){
+        
+    }
+    public void esGanador (){
+        
+    }
+    public void esEmpate (){
+        
+    }
+    public void cambiarJugador (){
+        
+    }
 }

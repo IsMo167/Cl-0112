@@ -2,7 +2,11 @@ import java.util.Random;
 public class Vector{
     Random randomGenerador = new Random ();
     int [] vector;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 374500e8e49a4c2bed3e0997007876c9d1e335a6
     
     public Vector(int [] vector){
         this.vector = vector;
@@ -26,6 +30,7 @@ public class Vector{
         }
     }
     public void ordenarVector (){
+<<<<<<< HEAD
         int posicionMenor = 0;
         int valorMenor = vector [posicionMenor];
         
@@ -34,6 +39,22 @@ public class Vector{
                 if (> vector[i]  ){
 
                 }
+=======
+        for (int i = 0; vector.length > i; i++){
+            int posicionMenor = i;
+            int valorMenor = vector [posicionMenor];
+            for (int j = i; vector.length > j; j++){
+                if ( valorMenor > vector[j]){
+                    posicionMenor = j;
+                    valorMenor = vector [j];
+                }
+            }
+            int auxVector = vector[posicionMenor];
+            if (posicionMenor != i){
+                vector[posicionMenor] = auxVector;
+                vector[posicionMenor] = vector [i];
+                vector [i] = auxVector;
+>>>>>>> 374500e8e49a4c2bed3e0997007876c9d1e335a6
             }
             
             vector [posicion]

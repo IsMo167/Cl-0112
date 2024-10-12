@@ -1,7 +1,8 @@
+
 public class Main{
     
-    public static void main (String [] args){
-        
+    
+    public static void main (String [] args){    
         int [] VectorArreglo = {4,6,2};
         
         
@@ -15,5 +16,11 @@ public class Main{
         vector1.imprimirVector();
         vector1.ordenarVector();
         vector1.imprimirVector ();
+        vector1.busquedaSecuencial (0);
+        
+        
+        
+
     }
+    
 }

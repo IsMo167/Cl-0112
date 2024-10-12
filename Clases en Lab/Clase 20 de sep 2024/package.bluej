@@ -2,6 +2,7 @@
 dependency1.from=Main
 dependency1.to=Vector
 dependency1.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=728
 editor.fx.0.width=800
 editor.fx.0.x=440
@@ -15,6 +16,21 @@ package.editor.width=1534
 package.editor.x=0
 package.editor.y=25
 package.frame.height=954
+=======
+editor.fx.0.height=1053
+editor.fx.0.width=1850
+editor.fx.0.x=70
+editor.fx.0.y=27
+objectbench.height=162
+objectbench.width=1656
+package.divider.horizontal=0.6
+package.divider.vertical=0.8221052631578948
+package.editor.height=774
+package.editor.width=1526
+package.editor.x=191
+package.editor.y=27
+package.frame.height=1050
+>>>>>>> 374500e8e49a4c2bed3e0997007876c9d1e335a6
 package.frame.width=1680
 package.numDependencies=1
 package.numTargets=2
@@ -23,7 +39,7 @@ package.showUses=true
 project.charset=UTF-8
 readme.height=60
 readme.name=@README
-readme.width=48
+readme.width=49
 readme.x=10
 readme.y=10
 target1.height=70
