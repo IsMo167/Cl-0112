@@ -1,9 +1,9 @@
-
+import java.util.Scanner;
 public class CuatroEnLinea{
     int [][] tablero;
     int jugadorActual;
     
-    public CuatroEnLinea (int [][] tablero,int jugadorActual ){
+    /*public CuatroEnLinea (int [][] tablero,int jugadorActual ){
         this.tablero = tablero;
         this.jugadorActual = jugadorActual;
     }
@@ -18,9 +18,13 @@ public class CuatroEnLinea{
     }
     public int getJugadorActual (){
         return jugadorActual;
+    }*/
+    
+    public CuatroEnLinea() {
+        iniciarJuego();
     }
     
-    public void iniciarJugador (){
+    public void iniciarJuego (){
         // Inicializa el tablero de 6 filas y 7 columnas
         tablero = new int [6][7];
         // Llenar el tablero con ceros 
@@ -210,4 +214,34 @@ public class CuatroEnLinea{
         jugadorActual = (jugadorActual == 1) ? 2 : 1;
     }
     
+    public static void main(String[] args) {
+        CuatroEnLinea juego = new CuatroEnLinea();
+        Scanner scanner = new Scanner(System.in);
+        boolean juegoTerminado = false;
+
+        while (!juegoTerminado) {
+            juego.mostrarTablero();
+            System.out.println("Jugador " + juego.jugadorActual + ", elige una columna (0-6): ");
+            int columna = scanner.nextInt();
+
+            if (juego.hacerMovimiento(columna)) {
+                if (juego.esGanador() != 0) {
+                    juego.mostrarTablero();
+                    System.out.println("¡Jugador " + juego.jugadorActual + " gana!");
+                    juegoTerminado = true;
+                } else if (juego.esEmpate()) {
+                    juego.mostrarTablero();
+                    System.out.println("¡Es un empate!");
+                    juegoTerminado = true;
+                } else {
+                    juego.cambiarJugador(); // Cambiar turno
+                }
+            } else {
+                System.out.println("Movimiento inválido, intenta de nuevo.");
+            }
+        }
+
+        scanner.close();
+    }
+
 }
