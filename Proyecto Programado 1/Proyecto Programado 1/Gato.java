@@ -30,6 +30,19 @@ public class Gato{
         }
      }
 
+     //verifica si el tablero esta lleno viendo si queda algun '_'
+     public boolean tableroLleno(){
+        for(int i =0; i <tablero.length; i++){
+            for(int j = 0; j < tablero[0].length; j++){
+                if(tablero[i][j]=='_'){
+                    return false;
+                }
+            }
+        }
+        return true;
+     }
+
+
      public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Gato gato1 = new Gato();
@@ -44,9 +57,10 @@ public class Gato{
             gato1.movimiento(fila-1, columna-1);
             System.out.println("Desea seguir jugando? 1 = Si   2 = No");
             int desicion = scanner.nextInt();
-            if (desicion==2) {
+            if (desicion==2 || gato1.tableroLleno()==true) {
                 enJuego = false;
             }
+            
         }
         scanner.close();
      }
