@@ -42,6 +42,22 @@ public class Gato{
         return true;
      }
 
+     public boolean ganador(){
+        for(int i = 0; i<tablero.length; i++){
+            if(tablero[i][0]=='X' && tablero[i][1]=='X' && tablero[i][2]=='X'){
+                return true;
+            }else if(tablero[0][i]=='X' && tablero[1][i]=='X' && tablero[2][i]=='X'){
+                return true;
+            }
+        }
+        if(tablero[0][0]=='X' && tablero[1][1]=='X' && tablero[2][2]=='X'){
+            return true;
+        } else if(tablero[0][2]=='X' && tablero[1][1]=='X' && tablero[2][0]=='X'){
+            return true;
+        }
+        return false;
+     }
+
 
      public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -57,8 +73,11 @@ public class Gato{
             gato1.movimiento(fila-1, columna-1);
             System.out.println("Desea seguir jugando? 1 = Si   2 = No");
             int desicion = scanner.nextInt();
-            if (desicion==2 || gato1.tableroLleno()==true) {
+            if (desicion==2 || gato1.tableroLleno()==true || gato1.ganador()== true) {
                 enJuego = false;
+            }
+            if(gato1.ganador()== true){
+                System.out.println("Felicidades gano la partida!");
             }
             
         }
