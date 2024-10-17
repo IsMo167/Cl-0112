@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Gato{
      char [] [] tablero = new char[3][3];
-     char jugadorActual;
+     char jugadorActual = 'X';
 
     //recorre el tablero vacio y lo llena con "_", para mostrarlo al usuario
      public void llenarTablero(){
@@ -23,8 +23,13 @@ public class Gato{
      //recibe la fila y la columna y sustituye ese espacio por el char del jugador
      public void movimiento(int fila, int columna){
         if(tablero[fila][columna] == '_'){
-            tablero[fila][columna] = 'X';
+            tablero[fila][columna] = jugadorActual;
             imprimirTablero();
+            if(jugadorActual== 'X'){
+                jugadorActual='O';
+            }else{
+                jugadorActual = 'X';
+            }
         } else {
             System.out.println("Espacio ocupado");
         }
@@ -41,18 +46,18 @@ public class Gato{
         }
         return true;
      }
-
+    //revisa tanto filas, columnas y diagonales con el mismo char
      public boolean ganador(){
         for(int i = 0; i<tablero.length; i++){
-            if(tablero[i][0]=='X' && tablero[i][1]=='X' && tablero[i][2]=='X'){
+            if(tablero[i][0]== jugadorActual && tablero[i][1]==jugadorActual && tablero[i][2]==jugadorActual){
                 return true;
-            }else if(tablero[0][i]=='X' && tablero[1][i]=='X' && tablero[2][i]=='X'){
+            }else if(tablero[0][i]==jugadorActual && tablero[1][i]==jugadorActual && tablero[2][i]==jugadorActual){
                 return true;
             }
         }
-        if(tablero[0][0]=='X' && tablero[1][1]=='X' && tablero[2][2]=='X'){
+        if(tablero[0][0]==jugadorActual && tablero[1][1]==jugadorActual && tablero[2][2]==jugadorActual){
             return true;
-        } else if(tablero[0][2]=='X' && tablero[1][1]=='X' && tablero[2][0]=='X'){
+        } else if(tablero[0][2]==jugadorActual && tablero[1][1]==jugadorActual && tablero[2][0]==jugadorActual){
             return true;
         }
         return false;
