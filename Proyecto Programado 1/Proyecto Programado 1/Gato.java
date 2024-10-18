@@ -1,7 +1,29 @@
 import java.util.Scanner;
 public class Gato{
-     char [] [] tablero = new char[3][3];
-     char jugadorActual = 'X';
+     char [] [] tablero;
+     char jugadorActual;
+
+     public void setTablero(char tablero [][]){
+        this.tablero= tablero;
+     }
+
+     public void setJugadorActual(char jugadorActual){
+        this.jugadorActual = jugadorActual;
+     }
+
+     public char [][] getTablero(){
+        return tablero;
+     }
+
+     public char getJugadorActual(){
+        return jugadorActual;
+     }
+
+     public Gato(char [][] tablero, char jugadorActual){
+        this.tablero = tablero;
+        this.jugadorActual = jugadorActual;
+     }
+
 
     //recorre el tablero vacio y lo llena con "_", para mostrarlo al usuario
      public void llenarTablero(){
@@ -25,11 +47,6 @@ public class Gato{
         if(tablero[fila][columna] == '_'){
             tablero[fila][columna] = jugadorActual;
             imprimirTablero();
-            if(jugadorActual== 'X'){
-                jugadorActual='O';
-            }else{
-                jugadorActual = 'X';
-            }
         } else {
             System.out.println("Espacio ocupado");
         }
@@ -46,6 +63,7 @@ public class Gato{
         }
         return true;
      }
+
     //revisa tanto filas, columnas y diagonales con el mismo char
      public boolean ganador(){
         for(int i = 0; i<tablero.length; i++){
@@ -63,6 +81,13 @@ public class Gato{
         return false;
      }
 
+     public void cambiarJugador(){
+        if(jugadorActual== 'X'){
+            jugadorActual='O';
+        }else{
+            jugadorActual = 'X';
+        }
+     }
 
      public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
