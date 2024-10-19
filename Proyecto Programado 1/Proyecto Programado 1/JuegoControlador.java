@@ -1,17 +1,35 @@
 import java.util.Scanner;
-//Clase Controlador
+/**
+ * @class JuegoControlador
+ * @brief Clase que gestiona la interacción entre los juegos Gato y Cuatro en Línea.
+ *
+ * Esta clase controla el flujo del juego, permitiendo a los usuarios seleccionar 
+ * entre jugar a Gato o Cuatro en Línea. También maneja la inicialización de los 
+ * juegos y el cambio de turnos entre los jugadores.
+ */
 public class JuegoControlador {
-    private Gato gato;
-    private CuatroEnLinea cuatroEnLinea;
-    private Object juegoActual; // Puede ser Gato o CuatroEnLinea
-    
-    //Método que instacia un nuevo juego de Gato y Cuatro en Linea
+    private Gato gato; ///< Instancia del juego Gato.
+    private CuatroEnLinea cuatroEnLinea; ///< Instancia del juego Cuatro en Línea.
+    private Object juegoActual; ///< Referencia al juego actual, que puede ser Gato o Cuatro en Línea.
+
+    /**
+     * @brief Constructor de la clase JuegoControlador.
+     * @param tablero Matriz que representa el estado inicial del tablero para Gato.
+     * @param jugadorActual Carácter que indica el jugador que inicia el juego.
+     *
+     * Este constructor crea nuevas instancias de los juegos Gato y Cuatro en Línea.
+     */
     public JuegoControlador(char[][] tablero, char jugadorActual) {
         gato = new Gato(tablero, jugadorActual);
         cuatroEnLinea = new CuatroEnLinea();
     }
 
-    //Muestra el menú con las opciones de lo que el usuario quiera elegir
+    /**
+     * @brief Muestra el menú de selección de juegos en la consola.
+     *
+     * Este método imprime las opciones disponibles para que el usuario elija entre 
+     * los juegos Gato, Cuatro en Línea o salir del programa.
+     */
     public void mostrarMenu() {
         System.out.println("Seleccione el juego:");
         System.out.println("1. Gato");
@@ -19,7 +37,13 @@ public class JuegoControlador {
         System.out.println("3. Salir");
     }
 
-    //Segun la opción que eligió el usuario, por medio del switch según la opción hace acciones específicas
+    /**
+     * @brief Permite al usuario seleccionar un juego.
+     *
+     * Dependiendo de la opción elegida por el usuario, este método inicializa el 
+     * juego correspondiente y gestiona la interacción. Utiliza un switch para 
+     * ejecutar acciones específicas según la elección del usuario.
+     */
     public void seleccionarJuego() {
         Scanner scanner = new Scanner(System.in);
         int opcion = scanner.nextInt();
@@ -27,25 +51,28 @@ public class JuegoControlador {
         switch (opcion) {
             case 1:
                 juegoActual = gato;
-                gato.iniciarJuego(this); // Pasar el controlador
+                gato.iniciarJuego(this); // Iniciar el juego de Gato
                 break;        
             case 2:
                 juegoActual = cuatroEnLinea;
-                jugarCuatroEnLinea();
+                jugarCuatroEnLinea(); // Iniciar el juego de Cuatro en Línea
                 break;
             case 3:
                 System.out.println("Saliendo...");
                 break;
             default:
                 System.out.println("Opción no válida. Intente de nuevo.");
-                seleccionarJuego();
+                seleccionarJuego(); // Repetir selección si la opción no es válida
         }
     }
 
-    /*Si el usuario eligió el número 2, se jugará Cuatro en Linea, si el juego no ha terminado, entonces
-     * se ejecuta el ciclo while, del cual muestra el tablero y luego cual jugador inicia, y le pregunta al usuario 
-     * la columna de 0 a 6 que desea poner la ficha, lo que procede a hacer el movimiento y si el juego terminó muestra
-     * el ganador y si el movimiento es inválito imprime que es inválito e intentarlo nuevamente
+    /**
+     * @brief Inicia el juego de Cuatro en Línea.
+     *
+     * Este método gestiona el flujo del juego de Cuatro en Línea, mostrando el 
+     * tablero, solicitando la columna donde el jugador desea colocar su ficha y 
+     * verificando si el juego ha terminado. Si el movimiento es inválido, se 
+     * solicita al usuario que intente de nuevo.
      */
     private void jugarCuatroEnLinea() {
         cuatroEnLinea.iniciarJuego();
@@ -73,17 +100,24 @@ public class JuegoControlador {
         
         System.out.println("Desea seguir jugando? 1 = Sí   2 = No");
         int decision = scanner.nextInt();
-        if (decision ==1){
-            mostrarMenu ();
-            seleccionarJuego ();
+        if (decision == 1) {
+            mostrarMenu();
+            seleccionarJuego(); // Volver a mostrar el menú
         }
         if (decision == 2) {
-            juegoTerminado = true;
+            juegoTerminado = true; // Terminar el juego
         }
-        
     }
-    
-    //Método Main, inicializa el programa, creando un nuevo juego...
+
+    /**
+     * @brief Método main para inicializar el programa.
+     *
+     * Este método inicializa el tablero vacío y establece el jugador inicial 
+     * antes de crear una nueva instancia del controlador y mostrar el menú 
+     * de selección de juegos.
+     *
+     * @param args Argumentos de línea de comandos (no utilizados).
+     */
     public static void main(String[] args) {
         // Inicializar el tablero vacío y el jugador inicial
         char[][] tableroInicial = new char[3][3]; // Tablero vacío
@@ -92,9 +126,6 @@ public class JuegoControlador {
         // Crear el controlador pasando el tablero y el jugador
         JuegoControlador controlador = new JuegoControlador(tableroInicial, jugadorInicial);
         controlador.mostrarMenu();
-        controlador.seleccionarJuego();
+        controlador.seleccionarJuego(); // Iniciar la selección de juego
     }
 }
-
-
-
