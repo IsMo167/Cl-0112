@@ -48,6 +48,7 @@ public class JuegoControlador {
      * el ganador y si el movimiento es inválito imprime que es inválito e intentarlo nuevamente
      */
     private void jugarCuatroEnLinea() {
+        cuatroEnLinea.iniciarJuego();
         Scanner scanner = new Scanner(System.in);
         boolean juegoTerminado = false;
 
