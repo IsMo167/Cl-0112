@@ -3,7 +3,7 @@ public class CuatroEnLinea{
     int [][] tablero;
     int jugadorActual;
     
-    /*public CuatroEnLinea (int [][] tablero,int jugadorActual ){
+    public CuatroEnLinea (int [][] tablero,int jugadorActual ){
         this.tablero = tablero;
         this.jugadorActual = jugadorActual;
     }
@@ -18,7 +18,7 @@ public class CuatroEnLinea{
     }
     public int getJugadorActual (){
         return jugadorActual;
-    }*/
+    }
     
     public CuatroEnLinea() {
         iniciarJuego();

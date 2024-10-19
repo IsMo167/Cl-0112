@@ -3,6 +3,7 @@ public class Gato{
      char [] [] tablero;
      char jugadorActual;
 
+     //metodos set y get
      public void setTablero(char tablero [][]){
         this.tablero= tablero;
      }
@@ -19,6 +20,7 @@ public class Gato{
         return jugadorActual;
      }
 
+     //Constructor
      public Gato(char [][] tablero, char jugadorActual){
         this.tablero = tablero;
         this.jugadorActual = jugadorActual;
