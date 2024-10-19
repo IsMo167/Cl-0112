@@ -1,10 +1,15 @@
 import java.util.Scanner;
 
+<<<<<<< HEAD
 public class Gato {
     private char[][] tablero = new char[3][3];
     private char jugadorActual = 'X';
 
     public void setTablero(char tablero [][]){
+=======
+     //metodos set y get
+     public void setTablero(char tablero [][]){
+>>>>>>> a743e9a129737add2f002b77ef221eec652ac68d
         this.tablero= tablero;
      }
 
@@ -18,9 +23,16 @@ public class Gato {
 
     public char getJugadorActual(){
         return jugadorActual;
+<<<<<<< HEAD
     }
     
     public Gato(char [][] tablero, char jugadorActual){
+=======
+     }
+
+     //Constructor
+     public Gato(char [][] tablero, char jugadorActual){
+>>>>>>> a743e9a129737add2f002b77ef221eec652ac68d
         this.tablero = tablero;
         this.jugadorActual = jugadorActual;
      }
