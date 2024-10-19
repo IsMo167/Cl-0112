@@ -1,42 +1,30 @@
 import java.util.Scanner;
 
-<<<<<<< HEAD
 public class Gato {
-    private char[][] tablero = new char[3][3];
-    private char jugadorActual = 'X';
+    private char[][] tablero;
+    private char jugadorActual;
 
-    public void setTablero(char tablero [][]){
-=======
-     //metodos set y get
-     public void setTablero(char tablero [][]){
->>>>>>> a743e9a129737add2f002b77ef221eec652ac68d
-        this.tablero= tablero;
-     }
-
-    public void setJugadorActual(char jugadorActual){
+    public Gato(char[][] tablero, char jugadorActual) {
+        this.tablero = tablero;
         this.jugadorActual = jugadorActual;
     }
 
-    public char [][] getTablero(){
+    public void setTablero(char[][] tablero) {
+        this.tablero = tablero;
+    }
+
+    public void setJugadorActual(char jugadorActual) {
+        this.jugadorActual = jugadorActual;
+    }
+
+    public char[][] getTablero() {
         return tablero;
     }
 
-    public char getJugadorActual(){
+    public char getJugadorActual() {
         return jugadorActual;
-<<<<<<< HEAD
     }
-    
-    public Gato(char [][] tablero, char jugadorActual){
-=======
-     }
 
-     //Constructor
-     public Gato(char [][] tablero, char jugadorActual){
->>>>>>> a743e9a129737add2f002b77ef221eec652ac68d
-        this.tablero = tablero;
-        this.jugadorActual = jugadorActual;
-     }
-     
     // Recorre el tablero vacío y lo llena con "_", para mostrarlo al usuario
     public void llenarTablero() {
         for (int i = 0; i < tablero.length; i++) {
@@ -58,10 +46,13 @@ public class Gato {
 
     // Realiza un movimiento en el tablero
     public void movimiento(int fila, int columna) {
+        if (fila < 0 || fila > 2 || columna < 0 || columna > 2) {
+            System.out.println("Posición inválida. Intente de nuevo.");
+            return;
+        }
         if (tablero[fila][columna] == '_') {
             tablero[fila][columna] = jugadorActual;
             imprimirTablero();
-            jugadorActual = (jugadorActual == 'X') ? 'O' : 'X'; // Alterna el jugador
         } else {
             System.out.println("Espacio ocupado");
         }
@@ -79,7 +70,7 @@ public class Gato {
         return true;
     }
 
-    // Verifica si hay un ganador
+    // Verifica si hay un ganador para el jugador actual
     public boolean ganador() {
         for (int i = 0; i < tablero.length; i++) {
             if (tablero[i][0] == jugadorActual && tablero[i][1] == jugadorActual && tablero[i][2] == jugadorActual) {
@@ -98,32 +89,37 @@ public class Gato {
 
     public void iniciarJuego() {
         Scanner scanner = new Scanner(System.in);
-        boolean enJuego = true;
         llenarTablero();
         imprimirTablero();
-
-        while (enJuego) {
-            System.out.println("Ingrese la fila (1-3) y la columna (1-3) en la que desea poner su ficha: ");
+    
+        while (true) {
+            System.out.println("Jugador " + jugadorActual + ", ingrese la fila (1-3) y la columna (1-3) en la que desea poner su ficha: ");
             int fila = scanner.nextInt();
             int columna = scanner.nextInt();
+    
+            // Realizar el movimiento
             movimiento(fila - 1, columna - 1); // Ajusta la entrada del usuario
-
+    
+            // Verificar si el jugador actual ha ganado después del movimiento
             if (ganador()) {
-                System.out.println("Felicidades, ganó la partida!");
+                imprimirTablero(); // Mostrar el tablero final
+                System.out.println("Felicidades           , " + jugadorActual + " ganó la partida");
                 break;
-            } else if (tableroLleno()) {
+            }
+    
+            // Verificar si el tablero está lleno
+            if (tableroLleno()) {
+                imprimirTablero(); // Mostrar el tablero final
                 System.out.println("El tablero está lleno. Fin del juego.");
                 break;
             }
-
-            }
-        
-        System.out.println("Desea seguir jugando? 1 = Sí   2 = No");
-        int decision = scanner.nextInt();
-        if (decision == 2) {
-            enJuego = false;
+    
+            // Cambiar de jugador
+            jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
         }
-        
+    
         scanner.close();
     }
+    
 }
+
