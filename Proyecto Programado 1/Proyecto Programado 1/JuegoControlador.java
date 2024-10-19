@@ -27,8 +27,8 @@ public class JuegoControlador {
         switch (opcion) {
             case 1:
                 juegoActual = gato;
-                gato.iniciarJuego();
-                break;
+                gato.iniciarJuego(this); // Pasar el controlador
+                break;        
             case 2:
                 juegoActual = cuatroEnLinea;
                 jugarCuatroEnLinea();
@@ -53,10 +53,10 @@ public class JuegoControlador {
 
         while (!juegoTerminado) {
             cuatroEnLinea.mostrarTablero();
-            System.out.println("Jugador " + cuatroEnLinea.getJugadorActual() + ", elige una columna (0-6): ");
+            System.out.println("Jugador " + cuatroEnLinea.getJugadorActual() + ", elige una columna (1-7): ");
             int columna = scanner.nextInt();
 
-            if (cuatroEnLinea.hacerMovimiento(columna)) {
+            if (cuatroEnLinea.hacerMovimiento(columna-1)) {
                 if (cuatroEnLinea.esJuegoTerminado()) {
                     cuatroEnLinea.mostrarTablero();
                     System.out.println("¡Jugador " + cuatroEnLinea.getJugadorActual() + " gana!");
