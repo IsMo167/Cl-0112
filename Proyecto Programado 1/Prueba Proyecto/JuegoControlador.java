@@ -87,7 +87,7 @@ public class JuegoControlador {
         // Inicializar el tablero vacío y el jugador inicial
         char[][] tableroInicial = new char[3][3]; // Tablero vacío
         char jugadorInicial = 'X'; // Jugador inicial
-
+        
         // Crear el controlador pasando el tablero y el jugador
         JuegoControlador controlador = new JuegoControlador(tableroInicial, jugadorInicial);
         controlador.mostrarMenu();
