@@ -1,0 +1,7 @@
+
+ |   Nombre    |    Email    |   Teléfono   | 
+ | Gabriel | ismo167@gmail.com | 87376789 | 
+ |   Nombre    |    Email    |   Teléfono   | 
+ | Pepito | ipepito@gmail.com | 12345678 | 
+ |   Nombre    |    Email    |   Teléfono   | 
+ | Juan | ijuanito@gmail.com | 87654321 | 
