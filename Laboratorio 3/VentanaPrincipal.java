@@ -5,7 +5,7 @@ import javax.swing.*;
 public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal() {
         setTitle("Ventana de Gabriel");
-        setSize(500, 400);
+        setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -40,7 +40,7 @@ public class VentanaPrincipal extends JFrame {
         String[] roles = { "Cliente", "Empleado", "Administrador" };
         JComboBox<String> comboRoles = new JComboBox<>(roles);
 
-        // Añadiendo el JCheckBox para aceptar términos y condiciones
+        // Se añade el JCheckBox para aceptar términos y condiciones
         JCheckBox checkBoxTerminos = new JCheckBox("Aceptar términos y condiciones");
 
         panelFormulario.add(etiquetaNombre);
@@ -50,15 +50,15 @@ public class VentanaPrincipal extends JFrame {
         panelFormulario.add(etiquetaTelefono);
         panelFormulario.add(campoTelefono);
         panelFormulario.add(etiquetaRol);
-        panelFormulario.add(comboRoles); // Añadimos el JComboBox al panel
-        panelFormulario.add(checkBoxTerminos); // Añadimos el JCheckBox al panel
+        panelFormulario.add(comboRoles); 
+        panelFormulario.add(checkBoxTerminos); 
 
-        // Botón "Guardar"
+        // Botón Guardar
         JButton botonGuardar = new JButton("Guardar");
         botonGuardar.addActionListener(e -> {
-            // Validaciones
+            
             if (campoNombre.getText().isEmpty() || campoEmail.getText().isEmpty() || campoTelefono.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
+                JOptionPane.showMessageDialog(null, "Por favor completar todos los campos.");
                 return;
             }
             if (comboRoles.getSelectedIndex() == -1) {
@@ -66,7 +66,7 @@ public class VentanaPrincipal extends JFrame {
                 return;
             }
             if (!checkBoxTerminos.isSelected()) {
-                JOptionPane.showMessageDialog(null, "Debes aceptar los términos y condiciones para continuar.");
+                JOptionPane.showMessageDialog(null, "Debes aceptar los términos y condiciones.");
                 return;
             }
 
@@ -80,25 +80,45 @@ public class VentanaPrincipal extends JFrame {
                 writer.write("\n ,   Nombre   ,    Email   ,   Teléfono   ,   Rol   , ");
                 writer.write("\n , " + nombre + " , " + email + " , " + telefono + " , " + rolSeleccionado + " , ");
                 writer.close();
-                JOptionPane.showMessageDialog(null, "Datos guardados exitosamente.");
+                JOptionPane.showMessageDialog(null, "Datos guardados.");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Error al guardar los datos.");
             }
         });
 
-        // Botón "Limpiar"
-        JButton botonLimpiar = new JButton("Limpiar");
-        botonLimpiar.addActionListener(e -> {
+        
+
+        //Botón para limpiar el Formulario
+        JButton botonLimpiarFormulario = new JButton("Limpiar Formulario");
+        botonLimpiarFormulario.addActionListener(e -> {
+            // Para limpiar los campos del formulario
             campoNombre.setText("");
             campoEmail.setText("");
             campoTelefono.setText("");
-            comboRoles.setSelectedIndex(0); // Reinicia el JComboBox a la primera opción
-            checkBoxTerminos.setSelected(false); // Desmarca el JCheckBox
+            comboRoles.setSelectedIndex(0); 
+            checkBoxTerminos.setSelected(false); 
         });
 
-        panelFormulario.add(botonGuardar);
-        panelFormulario.add(botonLimpiar); // Añadimos el botón "Limpiar"
+        // Botón para limpiar el documento de texto, se añade para seguir practicando, además de que lo veo muy útil éste botón
+        JButton botonLimpiarDocumentoDeTexto = new JButton("Limpiar el documento de texto");
+        botonLimpiarDocumentoDeTexto.addActionListener(e -> {
+            try {
+                FileWriter writer = new FileWriter("datos_usuario.txt");
+                writer.write(""); 
+                writer.close();
+                JOptionPane.showMessageDialog(null, "Contenido limpiado");
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Error al limpiar.");
+            } 
+        });
+
+        panelFormulario.add(botonGuardar); // Se añade el botón Guardar
+        
+        panelFormulario.add(botonLimpiarFormulario); // Para limpiar el Formulario
+
+        panelFormulario.add(botonLimpiarDocumentoDeTexto); // Se añade el botón Limpiar Documento de texto
         add(panelFormulario);
+
     }
 
     public static void main(String[] args) {
@@ -106,6 +126,7 @@ public class VentanaPrincipal extends JFrame {
         ventana.setVisible(true);
     }
 }
+
 
 
 

@@ -1,7 +1,0 @@
-
- ,   Nombre   ,    Email   ,   Teléfono   ,   Rol   , 
- , Gabriel , ismo167.est@gmail.com , 87376789 , Cliente , 
- ,   Nombre   ,    Email   ,   Teléfono   ,   Rol   , 
- , Juan , pablito@yahoo.com , 12345645 , Administrador , 
- ,   Nombre   ,    Email   ,   Teléfono   ,   Rol   , 
- , gsdfnnmh , lllkklkl , 4432 , Cliente , 
