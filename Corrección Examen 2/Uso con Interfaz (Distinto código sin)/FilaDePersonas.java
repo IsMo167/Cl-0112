@@ -8,7 +8,7 @@ public class FilaDePersonas {
     private JPanel panel;
     private ColaPrioridad colaPersonas; // Cola de prioridad personalizada
     private NodoHistorial historialAtendidos; // Historial de clientes atendidos como lista enlazada
-    private String rutaImagenPredeterminada = "C:\\Users\\XT\\Pictures\\b2ap3_amp_sistema-informtico.png"; // Ruta de la imagen fija
+    private String rutaImagenPredeterminada = "C:\\Users\\XT\\Cl-0112\\Corrección Examen 2\\Uso con Interfaz (Distinto código sin)\\b2ap3_amp_sistema-informtico.png"; // Ruta de la imagen fija
 
     public FilaDePersonas() {
         // Inicializar ventana y panel
