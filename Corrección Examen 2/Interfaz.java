@@ -104,7 +104,7 @@ public class Interfaz {
         );
 
         // Ajustar la fuente y alineación del texto
-        textoIndicaciones.setFont(new Font("Arial", Font.BOLD, 16));
+        textoIndicaciones.setFont(new Font("TimesNewRoman", Font.BOLD, 16));
         textoIndicaciones.setForeground(new Color(0, 0, 128)); // Color de texto azul oscuro
         textoIndicaciones.setMargin(new Insets(10, 10, 10, 10)); // Márgenes para crear espacio
         textoIndicaciones.setLineWrap(true); // Ajustar el texto al tamaño del área
@@ -280,11 +280,42 @@ public class Interfaz {
         bancoMenu.setFont(new Font("TimesNewRoman", Font.BOLD, 24)); // Cambiar la fuente
         bancoMenu.setForeground(new Color(128, 0, 0)); // Cambiar el color de texto
 
+        // Crear el botón "Salir"
+        JMenuItem salirItem = new JMenuItem("Salir");
+        salirItem.setFont(new Font("TimesNewRoman", Font.BOLD, 16)); // Cambiar la fuente
+        salirItem.setForeground(new Color(25, 25, 112)); // Cambiar el color de texto
+
+        // Agregar la acción al botón "Salir" que cierra la ventana
+        salirItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(ventana, "¿Estás seguro de que quieres salir?", "Confirmación", JOptionPane.YES_NO_OPTION);
+                if (opcion == JOptionPane.YES_OPTION) {
+                    ventana.dispose(); // Cerrar la ventana
+                }
+            }
+        });
+ 
+
+        // Crear un ítem en el menú "Banco" que abrirá la ventana de FilaDePersonas
+        JMenuItem filaDePersonasItem = new JMenuItem("Ver Fila de Personas");
+        filaDePersonasItem.setFont(new Font("TimesNewRoman", Font.BOLD, 16)); // Cambiar la fuente
+        filaDePersonasItem.setForeground(new Color(25, 25, 112)); // Cambiar el color de texto
+
+        // Agregar la acción para abrir la ventana de FilaDePersonas
+        filaDePersonasItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear y mostrar la ventana de FilaDePersonas
+                new FilaDePersonas();
+            }
+        });
+
+        // Agregar el ítem al menú "Banco"
+        bancoMenu.add(filaDePersonasItem);
+
         // Agregar el menú "Banco" a la barra de menú
         barraDeMenu.add(bancoMenu);
-
-        // Asignar la barra de menú a la ventana
-        ventana.setJMenuBar(barraDeMenu);
 
     }
 
@@ -297,7 +328,7 @@ public class Interfaz {
             for (int j = 0; j < tablero[i].length; j++) {
                 JLabel celda = new JLabel(tablero[i][j], SwingConstants.CENTER);
                 celda.setPreferredSize(new Dimension(tamañoCelda, tamañoCelda));
-                celda.setFont(new Font("Arial", Font.PLAIN, tamañoFuente));
+                celda.setFont(new Font("TimesNewRoman", Font.PLAIN, tamañoFuente));
 
                 // Establecer el color de fondo
                 if ((i + j) % 2 == 0) {
